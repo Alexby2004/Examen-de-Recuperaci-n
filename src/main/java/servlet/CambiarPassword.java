@@ -101,7 +101,7 @@ public class CambiarPassword extends HttpServlet {
             controller.edit(medico);
             // Actualiza el objeto en sesión
             session.setAttribute("medico", medico);
-            response.getWriter().write("{\"success\":true}");
+            response.getWriter().write("{\"success\":true, \"redirect\":\"verificar2fa.html\"}");
         } catch (Exception e) {
             response.getWriter().write("{\"success\":false, \"error\":\"" + e.getMessage() + "\"}");
         }

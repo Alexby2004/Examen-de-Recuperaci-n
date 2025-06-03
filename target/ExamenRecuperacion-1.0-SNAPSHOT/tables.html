@@ -732,12 +732,10 @@
             var passNueva = $('#passNueva').val();
             var passConfirmar = $('#passConfirmar').val();
 
-            // Validación simple
             if (!passActual || !passNueva || !passConfirmar) {
                 alert("Todos los campos son obligatorios.");
                 return;
             }
-
             if (passNueva !== passConfirmar) {
                 alert("La nueva contraseña y la confirmación no coinciden.");
                 return;
@@ -751,7 +749,8 @@
                     var json = typeof resp === "string" ? JSON.parse(resp) : resp;
                     if (json.success) {
                         $('#modalCambiarPass').modal('hide');
-                        alert("Contraseña cambiada exitosamente.");
+                        // Redirigir a la verificación 2FA
+                        window.location.href = json.redirect || "verificar2fa.html";
                     } else {
                         alert("Error: " + (json.error || "No se pudo cambiar la contraseña"));
                     }

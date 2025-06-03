@@ -77,6 +77,8 @@ public class Medicos implements Serializable {
     @Size(min = 1, max = 500)
     @Column(name = "passMedi")
     private String passMedi;
+    @Column(name = "secret2fa")
+    private String secret2fa;
 
     public Medicos() {
     }
@@ -156,6 +158,14 @@ public class Medicos implements Serializable {
 
     public void setPassMedi(String passMedi) {
         this.passMedi = passMedi;
+    }
+
+    public String getSecret2fa() {
+        return secret2fa;
+    }
+
+    public void setSecret2fa(String secret2fa) {
+        this.secret2fa = secret2fa;
     }
 
     @Override
